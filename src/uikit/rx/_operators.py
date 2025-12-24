@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from collections.abc import Callable
 from functools import partial
 from typing import (
     TYPE_CHECKING,
@@ -10,7 +9,7 @@ from typing import (
 )
 
 if TYPE_CHECKING:
-    from collections.abc import Callable
+    from collections.abc import Callable, Iterable
 
     from uikit.rx._types import Disposable, Observable, Observer, Subscriber
 
@@ -99,6 +98,12 @@ def start_with(value: T) -> Callable[[Observable[T]], Observable[T]]:
         return _Observable(_subscribe)
 
     return _operator
+
+
+def for_(
+    func: Callable[[T], U],
+) -> Callable[[Observable[Iterable[T]]], Observable[Iterable[U]]]:
+    return map_(lambda items: [func(item) for item in items])
 
 
 class _Observable(Generic[T]):
