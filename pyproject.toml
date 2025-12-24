@@ -4,8 +4,9 @@ version = "0.1.0"
 description = "qtcompose"
 readme = "README.md"
 authors = [
-    { name = "Lucino772" }
+  { name = "Lucino772" }
 ]
+license-files = ["LICEN[CS]E*"]
 requires-python = ">=3.11"
 dependencies = [
     "qtpy>=2.4.3",
