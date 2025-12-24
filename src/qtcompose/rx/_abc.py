@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING, Generic, TypeVar
 if TYPE_CHECKING:
     from collections.abc import Callable
 
-    from uikit.rx._types import Disposable, Observable
+    from qtcompose.rx._types import Disposable, Observable
 
 T = TypeVar("T")
 U = TypeVar("U")

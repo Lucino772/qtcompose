@@ -2,12 +2,12 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, TypeVar, cast
 
-from uikit.rx._abc import ObservableBase
+from qtcompose.rx._abc import ObservableBase
 
 if TYPE_CHECKING:
     from collections.abc import Callable
 
-    from uikit.rx._types import Disposable
+    from qtcompose.rx._types import Disposable
 
 T = TypeVar("T")
 

@@ -5,14 +5,14 @@ from typing import TYPE_CHECKING, Generic, NotRequired, TypedDict, TypeVar
 
 from qtpy import QtCore
 
-from uikit.rx import Subject
-from uikit.utils import qt_to_background
+from qtcompose.rx import Subject
+from qtcompose.utils import qt_to_background
 
 if TYPE_CHECKING:
     from collections.abc import Callable
 
-    from uikit.core import LifeCycle
-    from uikit.rx import Observable
+    from qtcompose.core import LifeCycle
+    from qtcompose.rx import Observable
 
 T = TypeVar("T")
 U = TypeVar("U", bound=QtCore.QObject)

@@ -1,7 +1,7 @@
 [project]
-name = "uikit"
+name = "qtcompose"
 version = "0.1.0"
-description = "uikit"
+description = "qtcompose"
 readme = "README.md"
 authors = [
     { name = "Lucino772" }
@@ -31,7 +31,7 @@ docstring-code-format = true
 docstring-code-line-length = 80
 
 [tool.ruff.lint.isort]
-known-first-party = ["uikit"]
+known-first-party = ["qtcompose"]
 
 [tool.ruff.lint.per-file-ignores]
 "**/scripts/*" = [

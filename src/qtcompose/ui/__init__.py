@@ -1,4 +1,4 @@
-from uikit.ui.box_layout import (
+from qtcompose.ui.box_layout import (
     BindQBoxLayoutProps,
     QBoxLayout,
     QBoxLayoutItem,
@@ -9,8 +9,8 @@ from uikit.ui.box_layout import (
     QVBoxLayoutProps,
     bind_qboxlayout,
 )
-from uikit.ui.widget import BindQWidgetProps, QWidget, QWidgetProps, bind_qwidget
-from uikit.ui.window import QMainWindow, QMainWindowProps
+from qtcompose.ui.widget import BindQWidgetProps, QWidget, QWidgetProps, bind_qwidget
+from qtcompose.ui.window import QMainWindow, QMainWindowProps
 
 __all__ = [
     "QWidgetProps",

@@ -11,7 +11,7 @@ from typing import (
 if TYPE_CHECKING:
     from collections.abc import Callable, Iterable
 
-    from uikit.rx._types import Disposable, Observable, Observer, Subscriber
+    from qtcompose.rx._types import Disposable, Observable, Observer, Subscriber
 
 T = TypeVar("T")
 U = TypeVar("U")

@@ -4,7 +4,7 @@ import functools
 from collections.abc import Callable
 from typing import Any, TypeAlias, TypeVar, overload
 
-from uikit.rx._types import Observable
+from qtcompose.rx._types import Observable
 
 T = TypeVar("T")
 U = TypeVar("U")

@@ -4,14 +4,14 @@ from typing import TYPE_CHECKING, Any, NotRequired, TypedDict, Unpack
 
 from qtpy import QtCore, QtGui, QtWidgets
 
-from uikit.core import LifeCycle, Ref, bind_signal, with_ref
-from uikit.rx import fn
-from uikit.utils import extract_typeddict, unpack
+from qtcompose.core import LifeCycle, Ref, bind_signal, with_ref
+from qtcompose.rx import fn
+from qtcompose.utils import extract_typeddict, unpack
 
 if TYPE_CHECKING:
     from collections.abc import Callable
 
-    from uikit.rx import Observable
+    from qtcompose.rx import Observable
 
 
 class BindQWidgetProps(TypedDict):

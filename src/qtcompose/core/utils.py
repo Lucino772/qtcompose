@@ -3,8 +3,8 @@ from typing import Any, TypeVar
 
 from qtpy import QtCore
 
-from uikit.core import LifeCycle, Ref
-from uikit.rx import Observable, fn
+from qtcompose.core import LifeCycle, Ref
+from qtcompose.rx import Observable, fn
 
 T = TypeVar("T")
 T_widget = TypeVar("T_widget", bound=QtCore.QObject)

@@ -6,13 +6,13 @@ from typing import TYPE_CHECKING, Any, Generic, TypeVar
 
 from qtpy import QtCore
 
-from uikit.rx import Observable, Subject, fn
-from uikit.utils import qt_ensure_ui_thread, unpack
+from qtcompose.rx import Observable, Subject, fn
+from qtcompose.utils import qt_ensure_ui_thread, unpack
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Iterable
 
-    from uikit.rx import Disposable
+    from qtcompose.rx import Disposable
 
 T = TypeVar("T")
 U = TypeVar("U")

@@ -1,5 +1,5 @@
-from uikit.rx._etc import as_observable
-from uikit.rx._operators import (
+from qtcompose.rx._etc import as_observable
+from qtcompose.rx._operators import (
     as_tuple,
     combine,
     for_,
@@ -8,7 +8,7 @@ from uikit.rx._operators import (
     map_,
     start_with,
 )
-from uikit.rx._pipe import pipe
+from qtcompose.rx._pipe import pipe
 
 __all__ = [
     "map_",

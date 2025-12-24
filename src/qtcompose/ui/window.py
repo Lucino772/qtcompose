@@ -4,15 +4,15 @@ from typing import TYPE_CHECKING, NotRequired, TypedDict, Unpack
 
 from qtpy import QtGui, QtWidgets
 
-from uikit.core import LifeCycle, Ref, with_ref
-from uikit.rx import fn
-from uikit.ui import BindQWidgetProps
-from uikit.utils import unpack
+from qtcompose.core import LifeCycle, Ref, with_ref
+from qtcompose.rx import fn
+from qtcompose.ui import BindQWidgetProps
+from qtcompose.utils import unpack
 
 if TYPE_CHECKING:
     from collections.abc import Callable
 
-    from uikit.rx import Observable
+    from qtcompose.rx import Observable
 
 
 class QMainWindowProps(BindQWidgetProps, TypedDict):
