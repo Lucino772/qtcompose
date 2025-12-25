@@ -6,7 +6,7 @@ from qtpy import QtGui, QtWidgets
 
 from qtcompose.core import LifeCycle, Ref, with_ref
 from qtcompose.rx import fn
-from qtcompose.ui import BindQWidgetProps
+from qtcompose.ui.widget import BindQWidgetProps
 from qtcompose.utils import unpack
 
 if TYPE_CHECKING:
