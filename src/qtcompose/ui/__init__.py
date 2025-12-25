@@ -9,6 +9,7 @@ from qtcompose.ui.box_layout import (
     QVBoxLayoutProps,
     bind_qboxlayout,
 )
+from qtcompose.ui.label import BindQLabelProps, QLabel, QLabelProps, bind_qlabel
 from qtcompose.ui.widget import BindQWidgetProps, QWidget, QWidgetProps, bind_qwidget
 from qtcompose.ui.window import QMainWindow, QMainWindowProps
 
@@ -28,4 +29,8 @@ __all__ = [
     "QVBoxLayoutProps",
     "QMainWindow",
     "QMainWindowProps",
+    "QLabel",
+    "QLabelProps",
+    "BindQLabelProps",
+    "bind_qlabel",
 ]
