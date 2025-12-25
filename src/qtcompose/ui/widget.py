@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, NotRequired, TypedDict, Unpack
+from typing import TYPE_CHECKING, Any, NotRequired, TypedDict, TypeVar, Unpack
 
 from qtpy import QtCore, QtGui, QtWidgets
 
@@ -12,6 +12,8 @@ if TYPE_CHECKING:
     from collections.abc import Callable
 
     from qtcompose.rx import Observable
+
+T_widget = TypeVar("T_widget", bound=QtWidgets.QWidget)
 
 
 class BindQWidgetProps(TypedDict):
@@ -57,8 +59,8 @@ class BindQWidgetProps(TypedDict):
 
 
 def bind_qwidget(
-    ref: Ref[QtWidgets.QWidget],
-    lifecycle: LifeCycle[QtWidgets.QWidget],
+    ref: Ref[T_widget],
+    lifecycle: LifeCycle[T_widget],
     **props: Unpack[BindQWidgetProps],
 ):
     if "attributes" in props:

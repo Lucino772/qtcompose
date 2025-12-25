@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, NotRequired, TypedDict, Unpack
+from typing import TYPE_CHECKING, NotRequired, TypedDict, TypeVar, Unpack
 from uuid import uuid4
 
 from qtpy import QtCore, QtWidgets
@@ -14,6 +14,8 @@ if TYPE_CHECKING:
     from collections.abc import Callable, Collection
 
     from qtcompose.rx import Observable
+
+T_layout = TypeVar("T_layout", bound=QtWidgets.QBoxLayout)
 
 
 class QBoxLayoutItem:
@@ -45,7 +47,7 @@ class BindQBoxLayoutProps(TypedDict):
     spacing: NotRequired[Observable[int]]
 
     # From QtWidgets.QBoxLayout
-    direction: Observable[QtWidgets.QBoxLayout.Direction]
+    direction: NotRequired[Observable[QtWidgets.QBoxLayout.Direction]]
     children: NotRequired[
         Observable[
             Collection[
@@ -56,8 +58,8 @@ class BindQBoxLayoutProps(TypedDict):
 
 
 def bind_qboxlayout(
-    ref: Ref[QtWidgets.QBoxLayout],
-    lifecycle: LifeCycle[QtWidgets.QBoxLayout],
+    ref: Ref[T_layout],
+    lifecycle: LifeCycle[T_layout],
     **props: Unpack[BindQBoxLayoutProps],
 ):
     if "alignment" in props:
@@ -91,8 +93,8 @@ def bind_qboxlayout(
 
 
 def _bind_children(
-    lifecycle: LifeCycle[QtWidgets.QBoxLayout],
-    ref: Ref[QtWidgets.QBoxLayout],
+    lifecycle: LifeCycle[T_layout],
+    ref: Ref[T_layout],
     children: Observable[
         Collection[
             QBoxLayoutItem.Spacing | QBoxLayoutItem.Stretch | QBoxLayoutItem.Child
@@ -104,7 +106,7 @@ def _bind_children(
     ] = []
 
     def _updater(
-        layout: QtWidgets.QBoxLayout,
+        layout: T_layout,
         children: Collection[
             QBoxLayoutItem.Spacing | QBoxLayoutItem.Stretch | QBoxLayoutItem.Child
         ],
@@ -177,12 +179,11 @@ def QBoxLayout(**props: Unpack[QBoxLayoutProps]):  # noqa: N802
 
 
 class QVBoxLayoutProps(BindQBoxLayoutProps, TypedDict):
-    ref: NotRequired[Ref[QtWidgets.QBoxLayout]]
-    direction: NotRequired[Observable[QtWidgets.QBoxLayout.Direction]]
+    ref: NotRequired[Ref[QtWidgets.QVBoxLayout]]
 
 
 def QVBoxLayout(**props: Unpack[QVBoxLayoutProps]):  # noqa: N802
-    ref = Ref[QtWidgets.QBoxLayout]()
+    ref = Ref[QtWidgets.QVBoxLayout]()
     adapter = with_ref(
         lambda: QtWidgets.QVBoxLayout(),
         ref,
@@ -194,12 +195,11 @@ def QVBoxLayout(**props: Unpack[QVBoxLayoutProps]):  # noqa: N802
 
 
 class QHBoxLayoutProps(BindQBoxLayoutProps, TypedDict):
-    ref: NotRequired[Ref[QtWidgets.QBoxLayout]]
-    direction: NotRequired[Observable[QtWidgets.QBoxLayout.Direction]]
+    ref: NotRequired[Ref[QtWidgets.QHBoxLayout]]
 
 
 def QHBoxLayout(**props: Unpack[QHBoxLayoutProps]):  # noqa: N802
-    ref = Ref[QtWidgets.QBoxLayout]()
+    ref = Ref[QtWidgets.QHBoxLayout]()
     adapter = with_ref(
         lambda: QtWidgets.QHBoxLayout(),
         ref,
