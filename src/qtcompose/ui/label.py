@@ -94,7 +94,7 @@ class QLabelProps(BindQWidgetProps, BindQLabelProps, TypedDict):
     ref: NotRequired[Ref[QtWidgets.QLabel]]
 
 
-def QLabel(**props: Unpack[QLabelProps]) -> Callable[[], QtWidgets.QLabel]:
+def QLabel(**props: Unpack[QLabelProps]) -> Callable[[], QtWidgets.QLabel]:  # noqa: N802
     ref = Ref[QtWidgets.QLabel]()
     adapter = with_ref(lambda: QtWidgets.QLabel(), ref, props.get("ref"))
 
