@@ -26,6 +26,12 @@ from qtcompose.ui.buttons.push import (
     bind_qpush_button,
 )
 from qtcompose.ui.buttons.radio import QRadioButton, QRadioButtonProps
+from qtcompose.ui.buttons.tool import (
+    BindQToolButtonProps,
+    QToolButton,
+    QToolButtonProps,
+    bind_qtoolbutton,
+)
 from qtcompose.ui.label import BindQLabelProps, QLabel, QLabelProps, bind_qlabel
 from qtcompose.ui.widget import BindQWidgetProps, QWidget, QWidgetProps, bind_qwidget
 from qtcompose.ui.window import QMainWindow, QMainWindowProps
@@ -62,4 +68,8 @@ __all__ = [
     "bind_qcheckbox",
     "QRadioButton",
     "QRadioButtonProps",
+    "BindQToolButtonProps",
+    "bind_qtoolbutton",
+    "QToolButtonProps",
+    "QToolButton",
 ]
