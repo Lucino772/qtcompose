@@ -1,7 +1,7 @@
 [project]
 name = "qtcompose"
 dynamic = ["version"]
-description = "qtcompose"
+description = "Build Qt applications in a reactive, declarative, and composable way"
 readme = "README.md"
 authors = [
   { name = "Lucino772" }
