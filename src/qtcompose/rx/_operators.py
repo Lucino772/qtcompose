@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import operator
 from functools import partial
 from typing import (
     TYPE_CHECKING,
@@ -104,6 +105,26 @@ def for_(
     func: Callable[[T], U],
 ) -> Callable[[Observable[Iterable[T]]], Observable[Iterable[U]]]:
     return map_(lambda items: [func(item) for item in items])
+
+
+def distinct(
+    equal_fn: Callable[[T, T], bool] = operator.eq,
+) -> Callable[[Observable[T]], Observable[T]]:
+    def _operator(obs: Observable[T]) -> Observable[T]:
+        def _subscribe(other: Observer[T]) -> Disposable:
+            curr_val: T | None = None
+
+            def _subscriber(other: Observer[T], val: T) -> None:
+                nonlocal curr_val
+                if curr_val is None or equal_fn(curr_val, val) is False:
+                    other.push(val)
+                    curr_val = val
+
+            return obs.subscribe(partial(_subscriber, other))
+
+        return _Observable(_subscribe)
+
+    return _operator
 
 
 class _Observable(Generic[T]):

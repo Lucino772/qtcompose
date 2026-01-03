@@ -2,6 +2,7 @@ from qtcompose.rx._etc import as_observable
 from qtcompose.rx._operators import (
     as_tuple,
     combine,
+    distinct,
     for_,
     if_,
     is_not_none,
@@ -20,4 +21,5 @@ __all__ = [
     "start_with",
     "for_",
     "as_observable",
+    "distinct",
 ]
